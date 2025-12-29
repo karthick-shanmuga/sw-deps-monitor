@@ -1,17 +1,18 @@
+[ABComm]
+
+[ACComm]
+
 [ArrayUtilities]
 
 [FileUtilities]
-
-[StringUtilities]
-
-[ModuleC]
-
-[ModuleB]
 
 [ModuleA]
 ABComm = ""
 ACComm = ""
 
-[ACComm]
+[ModuleB]
+ABComm = ""
 
-[ABComm]
+[ModuleC]
+
+[StringUtilities]
