@@ -28,13 +28,7 @@ jobs:
           PR_BASE: ${{ github.event.pull_request.base.ref }}
           PR_HEAD: ${{ github.event.pull_request.head.ref }}
         run: |
-          Write-Host "Base: $env:PR_BASE  Head: $env:PR_HEAD"
-          # Ensure both branches are available locally
-          git fetch origin $env:PR_BASE $env:PR_HEAD --no-tags --no-recurse-submodules --depth=1
-          # List files changed between base and head (uses the merge base)
-          git diff --name-only origin/$env:PR_BASE...origin/$env:PR_HEAD | Out-File -FilePath changed-files.txt -Encoding utf8
-          if ((Get-Item changed-files.txt).Length -eq 0) { Write-Host 'No changed files found.' }
-          Get-Content changed-files.txt | ForEach-Object { Write-Host " - $_" }
+          g-cli -v --lv-ver 2023 --arch 32 "${{ github.workspace }}\CICD\Reusables\GenerateChangedFilesList.vi" -- "${{github.workspace}}" "main" "initial-ci-check-yml" "${{ github.workspace }}\changed-files.txt"
 
 
       - name: Run path validator (Python)
