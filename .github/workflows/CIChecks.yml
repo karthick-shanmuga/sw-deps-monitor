@@ -28,7 +28,7 @@ jobs:
           PR_BASE: ${{ github.event.pull_request.base.ref }}
           PR_HEAD: ${{ github.event.pull_request.head.ref }}
         run: |
-          g-cli -v --lv-ver 2023 --arch 32 "${{ github.workspace }}\CICD\Reusables\GenerateChangedFilesList.vi" -- "${{github.workspace}}" "main" "initial-ci-check-yml" "${{ github.workspace }}\changed-files.txt"
+          g-cli -v --lv-ver 2023 --arch 32 "${{ github.workspace }}\CICD\CheckModifiedVIs\GenerateChangedFilesList.vi" -- "${{github.workspace}}" "main" "initial-ci-check-yml" "${{ github.workspace }}\changed-files.txt"
 
 
       - name: Run path validator (Python)
