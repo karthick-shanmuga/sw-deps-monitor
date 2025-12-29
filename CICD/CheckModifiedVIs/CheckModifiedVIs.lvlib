@@ -4,8 +4,4 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">587235328</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
-	<Item Name="GenerateChangedFilesList.vi" Type="VI" URL="../GenerateChangedFilesList.vi"/>
-	<Item Name="GenerateChangedLibrariesList.vi" Type="VI" URL="../GenerateChangedLibrariesList.vi"/>
-	<Item Name="ReadCICDPathConfig.vi" Type="VI" URL="../../Reusables/ReadCICDPathConfig.vi"/>
-	<Item Name="ReadSectionPathKeys.vi" Type="VI" URL="../../Reusables/SubVIs/ReadSectionPathKeys.vi"/>
 </Library>

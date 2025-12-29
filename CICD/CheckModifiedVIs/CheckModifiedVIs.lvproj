@@ -13,7 +13,7 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="CheckAllVIs.lvlib" Type="Library" URL="../../CheckAllVIs/CheckAllVIs.lvlib"/>
 		<Item Name="CheckModifiedVIs.lvlib" Type="Library" URL="../CheckModifiedVIs.lvlib"/>
-		<Item Name="Reusables.lvlib" Type="Library" URL="../../Reusables/Reusables.lvlib"/>
+		<Item Name="CICD.lvlib" Type="Library" URL="../../CICD.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="openg_array.lvlib" Type="Library" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/openg_array.lvlib"/>

@@ -4,8 +4,25 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">587235328</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Item Name="AutomatedChecks" Type="Folder">
+		<Item Name="UnexpectedDepsCheck.vi" Type="VI" URL="../AutomatedChecks/UnexpectedDepsCheck.vi"/>
+		<Item Name="UnexpectedDepsCheck1.vi" Type="VI" URL="../AutomatedChecks/UnexpectedDepsCheck1.vi"/>
+		<Item Name="UpdateActualDepsList.vi" Type="VI" URL="../AutomatedChecks/UpdateActualDepsList.vi"/>
+	</Item>
+	<Item Name="CheckModifiedVIs" Type="Folder">
+		<Item Name="GenerateChangedFilesList.vi" Type="VI" URL="../CheckModifiedVIs/GenerateChangedFilesList.vi"/>
+		<Item Name="GenerateChangedLibrariesList.vi" Type="VI" URL="../CheckModifiedVIs/GenerateChangedLibrariesList.vi"/>
+		<Item Name="ReadCICDPathConfig.vi" Type="VI" URL="../Configs/ReadCICDPathConfig.vi"/>
+		<Item Name="ReadSectionPathKeys.vi" Type="VI" URL="../SubVIs/ReadSectionPathKeys.vi"/>
+	</Item>
 	<Item Name="DevTools" Type="Folder">
-		<Item Name="InitializeExpDepsFilesWithActualDeps.vi" Type="VI" URL="../../DevTools/InitializeExpDepsFilesWithActualDeps.vi"/>
+		<Item Name="CreateProjectsForEachLibrary.vi" Type="VI" URL="../DevTools/CreateProjectsForEachLibrary.vi"/>
+		<Item Name="InitializeExpDepsFilesWithActualDeps.vi" Type="VI" URL="../DevTools/InitializeExpDepsFilesWithActualDeps.vi"/>
+	</Item>
+	<Item Name="GCLIWrappers" Type="Folder">
+		<Item Name="GCliExit.vi" Type="VI" URL="../GCLIWrappers/GCliExit.vi"/>
+		<Item Name="GCliTemplate.vi" Type="VI" URL="../GCLIWrappers/GCliTemplate.vi"/>
+		<Item Name="GCliWrite.vi" Type="VI" URL="../GCLIWrappers/GCliWrite.vi"/>
 	</Item>
 	<Item Name="SubVIs" Type="Folder">
 		<Item Name="AddDependenciesOfLibrary.vi" Type="VI" URL="../SubVIs/AddDependenciesOfLibrary.vi"/>
@@ -15,21 +32,14 @@
 		<Item Name="IsUserLibVI.vi" Type="VI" URL="../SubVIs/IsUserLibVI.vi"/>
 	</Item>
 	<Item Name="Typedefs" Type="Folder">
-		<Item Name="CICDPathConfigs.ctl" Type="VI" URL="../../Typedefs/CICDPathConfigs.ctl"/>
+		<Item Name="CICDPathConfigs.ctl" Type="VI" URL="../Typedefs/CICDPathConfigs.ctl"/>
 		<Item Name="DependenciesAction.ctl" Type="VI" URL="../Typedefs/DependenciesAction.ctl"/>
 		<Item Name="DepsCheckResult.ctl" Type="VI" URL="../Typedefs/DepsCheckResult.ctl"/>
 	</Item>
 	<Item Name="CICDPathConfigLV2.vi" Type="VI" URL="../SubVIs/CICDPathConfigLV2.vi"/>
-	<Item Name="CreateProjectsForEachLibrary.vi" Type="VI" URL="../../DevTools/CreateProjectsForEachLibrary.vi"/>
 	<Item Name="ExpectedDepsCheckResults.vi" Type="VI" URL="../SubVIs/ExpectedDepsCheckResults.vi"/>
 	<Item Name="FindLibraryPath.vi" Type="VI" URL="../SubVIs/FindLibraryPath.vi"/>
-	<Item Name="GCliExit.vi" Type="VI" URL="../GCliExit.vi"/>
-	<Item Name="GCliTemplate.vi" Type="VI" URL="../GCliTemplate.vi"/>
-	<Item Name="GCliWrite.vi" Type="VI" URL="../GCliWrite.vi"/>
 	<Item Name="GetActualDepsListPath.vi" Type="VI" URL="../SubVIs/GetActualDepsListPath.vi"/>
 	<Item Name="GetAllLibraries.vi" Type="VI" URL="../SubVIs/GetAllLibraries.vi"/>
 	<Item Name="ReadExpectedDependencies.vi" Type="VI" URL="../SubVIs/ReadExpectedDependencies.vi"/>
-	<Item Name="UnexpectedDepsCheck.vi" Type="VI" URL="../../AutomatedChecks/UnexpectedDepsCheck.vi"/>
-	<Item Name="UnexpectedDepsCheck1.vi" Type="VI" URL="../../AutomatedChecks/UnexpectedDepsCheck1.vi"/>
-	<Item Name="UpdateActualDepsList.vi" Type="VI" URL="../../AutomatedChecks/UpdateActualDepsList.vi"/>
 </Library>
