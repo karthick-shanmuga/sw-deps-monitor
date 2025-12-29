@@ -4,6 +4,9 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">587235328</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Item Name="DevTools" Type="Folder">
+		<Item Name="InitializeExpDepsFilesWithActualDeps.vi" Type="VI" URL="../../DevTools/InitializeExpDepsFilesWithActualDeps.vi"/>
+	</Item>
 	<Item Name="SubVIs" Type="Folder">
 		<Item Name="AddDependenciesOfLibrary.vi" Type="VI" URL="../SubVIs/AddDependenciesOfLibrary.vi"/>
 		<Item Name="AddLibSectionIfMissing.vi" Type="VI" URL="../SubVIs/AddLibSectionIfMissing.vi"/>
@@ -14,9 +17,11 @@
 		<Item Name="DependenciesAction.ctl" Type="VI" URL="../Typedefs/DependenciesAction.ctl"/>
 	</Item>
 	<Item Name="CreateProjectsForEachLibrary.vi" Type="VI" URL="../../DevTools/CreateProjectsForEachLibrary.vi"/>
+	<Item Name="FindLibraryPath.vi" Type="VI" URL="../SubVIs/FindLibraryPath.vi"/>
 	<Item Name="GCliExit.vi" Type="VI" URL="../GCliExit.vi"/>
 	<Item Name="GCliTemplate.vi" Type="VI" URL="../GCliTemplate.vi"/>
 	<Item Name="GCliWrite.vi" Type="VI" URL="../GCliWrite.vi"/>
-	<Item Name="InitializeExpDepsFilesWithActualDeps.vi" Type="VI" URL="../../DevTools/InitializeExpDepsFilesWithActualDeps.vi"/>
+	<Item Name="GenericStatusIndicator.vi" Type="VI" URL="../SubVIs/GenericStatusIndicator.vi"/>
 	<Item Name="UnexpectedDepsCheck.vi" Type="VI" URL="../../AutomatedChecks/UnexpectedDepsCheck.vi"/>
+	<Item Name="UpdateActualDepsList.vi" Type="VI" URL="../../AutomatedChecks/UpdateActualDepsList.vi"/>
 </Library>

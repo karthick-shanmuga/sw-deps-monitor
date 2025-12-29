@@ -5,4 +5,5 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Item Name="GenerateChangedFilesList.vi" Type="VI" URL="../GenerateChangedFilesList.vi"/>
+	<Item Name="GenerateChangedLibrariesList.vi" Type="VI" URL="../GenerateChangedLibrariesList.vi"/>
 </Library>
