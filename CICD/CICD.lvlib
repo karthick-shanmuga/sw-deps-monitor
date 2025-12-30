@@ -30,6 +30,7 @@
 		<Item Name="FindProjectPath.vi" Type="VI" URL="../SubVIs/FindProjectPath.vi"/>
 		<Item Name="GenericStatusIndicator.vi" Type="VI" URL="../SubVIs/GenericStatusIndicator.vi"/>
 		<Item Name="IsUserLibVI.vi" Type="VI" URL="../SubVIs/IsUserLibVI.vi"/>
+		<Item Name="LVLibNameFromFileName.vi" Type="VI" URL="../SubVIs/LVLibNameFromFileName.vi"/>
 	</Item>
 	<Item Name="Typedefs" Type="Folder">
 		<Item Name="CICDPathConfigs.ctl" Type="VI" URL="../Typedefs/CICDPathConfigs.ctl"/>
@@ -41,5 +42,7 @@
 	<Item Name="FindLibraryPath.vi" Type="VI" URL="../SubVIs/FindLibraryPath.vi"/>
 	<Item Name="GetActualDepsListPath.vi" Type="VI" URL="../SubVIs/GetActualDepsListPath.vi"/>
 	<Item Name="GetAllLibraries.vi" Type="VI" URL="../SubVIs/GetAllLibraries.vi"/>
+	<Item Name="LVLibNameFromFilePath.vi" Type="VI" URL="../SubVIs/LVLibNameFromFilePath.vi"/>
+	<Item Name="ReadChangedFileLogPaths.vi" Type="VI" URL="../SubVIs/ReadChangedFileLogPaths.vi"/>
 	<Item Name="ReadExpectedDependencies.vi" Type="VI" URL="../SubVIs/ReadExpectedDependencies.vi"/>
 </Library>
