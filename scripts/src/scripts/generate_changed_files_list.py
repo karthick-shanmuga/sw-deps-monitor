@@ -15,7 +15,7 @@ This Module has funtions to generate the following lists:
 import argparse
 from dataclasses import dataclass
 from typing import Dict, Any
-import os, subprocess
+import os, subprocess, configparser
 
 
 ## Constants
@@ -23,9 +23,46 @@ PATH_CONFIGS_FILE = "CICD/Configs/PathConfigs.ini"
 section_names_for_inclusion = ["SourceFolderPaths", "GlobalIncludePaths"]
 section_names_for_exclusion = ["GlobalExcludePaths"]
 exclusion_section_specific_to_check = "ExcludePathsSpecificToChecks"
-changed_files_list_path = "CICD\\Temp\\CheckModifiedLVFiles\\changed_files.txt"
-changed_lvfiles_list_path = "CICD\\Temp\\CheckModifiedLVFiles\\changed_lvfiles.txt"
-in_scope_changed_lvfiles_path = "CICD\\Temp\\CheckModifiedLVFiles\\in_scope_changed_lvfiles.txt"
+# default repo-relative paths (fallbacks)
+changed_files_list_path = os.path.normpath(r"CICD\Temp\CheckModifiedLVFiles\changed_files.txt")
+changed_lvfiles_list_path = os.path.normpath(r"CICD\Temp\CheckModifiedLVFiles\changed_lvfiles.txt")
+in_scope_changed_lvfiles_path = os.path.normpath(r"CICD\Temp\CheckModifiedLVFiles\in_scope_changed_lvfiles.txt")
+
+
+def load_path_configs(workspace_root: str) -> None:
+    """
+    Read PATH_CONFIGS_FILE from workspace_root and set the module-global
+    paths: changed_files_list_path, changed_lvfiles_list_path,
+    in_scope_changed_lvfiles_path. Values in the INI are treated as
+    repo-relative; surrounding quotes are stripped. Falls back to defaults.
+    """
+
+    global changed_files_list_path, changed_lvfiles_list_path, in_scope_changed_lvfiles_path
+
+    cfg = configparser.ConfigParser()
+    cfg_path = os.path.join(workspace_root, PATH_CONFIGS_FILE)
+    try:
+        cfg.read(cfg_path)
+    except Exception:
+        # leave defaults on any read/parsing error
+        return
+
+    sec = "ChangedFilesLogs"
+    def _get_opt(opt_name: str, default: str) -> str:
+        try:
+            if cfg.has_section(sec) and cfg.has_option(sec, opt_name):
+                val = cfg.get(sec, opt_name)
+                if val is None:
+                    return default
+                val = val.strip().strip('"').strip("'")
+                return os.path.normpath(val) if val else default
+        except Exception:
+            pass
+        return default
+
+    changed_files_list_path = _get_opt("ChangedFilesListPath", changed_files_list_path)
+    changed_lvfiles_list_path = _get_opt("ChangedLVFilesListPath", changed_lvfiles_list_path)
+    in_scope_changed_lvfiles_path = _get_opt("InScopeChangedLVFilesPath", in_scope_changed_lvfiles_path)
 
 
 ## Function to get the workspace root from command line arguments using argparse
@@ -243,6 +280,10 @@ def filter_changed_lvfiles_based_on_scope(
 def main():
     args = get_cli_args()
     print("Workspace Root:", args.workspace_root)
+
+    # Load path configs to set global path variables
+    load_path_configs(args.workspace_root)
+    
     generate_changed_files_list(
         base_branch=args.base_branch,
         head_branch=args.head_branch,
