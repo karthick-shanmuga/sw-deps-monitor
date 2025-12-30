@@ -239,3 +239,11 @@ __marimo__/
 
 # Temp Docs
 Docs/Temp/
+
+# CICD Temp CheckAll
+CICD/Temp/CheckAllLVFiles/
+CICD/Reports/CheckAllLVFiles/
+
+# CICD Temp CheckModified
+CICD/Temp/CheckModifiedLVFiles/
+CICD/Reports/CheckModifiedLVFiles/
