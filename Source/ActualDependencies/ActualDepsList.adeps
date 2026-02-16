@@ -9,9 +9,12 @@
 [ModuleA]
 ABComm = ""
 ACComm = ""
+FileUtilities = ""
 
 [ModuleB]
 ABComm = ""
+ACComm = ""
+StringUtilities = ""
 
 [ModuleC]
 
