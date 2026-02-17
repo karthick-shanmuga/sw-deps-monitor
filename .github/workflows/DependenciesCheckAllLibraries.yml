@@ -50,7 +50,7 @@ jobs:
           uv run python -u .\scripts\src\scripts\sort_actual_deps_list.py "${{ github.workspace }}\Source\ActualDependencies"
           uv run python -u .\scripts\src\scripts\find_circular_paths.py --folder "${{ github.workspace }}\Source\ActualDependencies"
 
-      - name: Create PR for dependency updates if needed
+      - name: Create PR for ActualDepsList.adeps dependency updates if needed
         shell: powershell
         env:
           GITHUB_TOKEN: ${{ secrets.DEPS_MON_TOKEN }}
