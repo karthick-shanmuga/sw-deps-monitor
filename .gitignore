@@ -247,3 +247,6 @@ CICD/Reports/CheckAllLVFiles/
 # CICD Temp CheckModified
 CICD/Temp/CheckModifiedLVFiles/
 CICD/Reports/CheckModifiedLVFiles/
+
+# Temporary report files
+reports/
