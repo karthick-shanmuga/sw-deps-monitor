@@ -124,7 +124,7 @@ def plot_graph(
         ),
     )
     # Disable mathjax to prevent potential Kaleido hangs/errors on Windows
-    pio.kaleido.scope.mathjax = None
+    pio.defaults.mathjax = None
     fig.write_image(output_path)
 
 
