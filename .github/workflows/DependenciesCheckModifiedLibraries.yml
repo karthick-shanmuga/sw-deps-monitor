@@ -30,7 +30,7 @@ jobs:
           scripts\.venv\Scripts\activate
           uv run python -u .\scripts\src\scripts\generate_changed_files_list.py --workspace_root "${{ github.workspace }}" --base_branch "origin/${{ github.event.pull_request.base.ref }}" --head_branch "HEAD"
 
-      - name: Dependencies Check
+      - name: Unexpected Dependencies Check
         shell: powershell
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -40,4 +40,22 @@ jobs:
         # True argument in the gcli command args represents Checking Only Modified Libraries
         run: |
           g-cli -v --lv-ver 2023 --arch 32 "${{github.workspace}}\CICD\AutomatedChecks\UnexpectedDepsCheck.vi" -- "${{github.workspace}}" "True"
+
+      - name: Update Actual Deps List and Circular Dependencies Check
+        shell: powershell
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_BASE: ${{ github.event.pull_request.base.ref }}
+          PR_HEAD: ${{ github.event.pull_request.head.ref }}
+        # Update the Actual Deps list for modified libraries and then perform circular dependencies check. 
+        # True argument in the gcli command args represents Update only for Modified Libraries
+        run: |
+          g-cli -v --lv-ver 2023 --arch 32 "${{github.workspace}}\CICD\AutomatedChecks\UpdateActualDepsList.vi" -- "${{github.workspace}}" "True"
+          cd ${{ github.workspace }}\scripts
+          uv sync
+          cd ${{ github.workspace }}\
+          scripts\.venv\Scripts\activate
+          uv run python -u .\scripts\src\scripts\sort_actual_deps_list.py "${{ github.workspace }}\Source\ActualDependencies"
+          uv run python -u .\scripts\src\scripts\find_circular_paths.py --folder "${{ github.workspace }}\Source\ActualDependencies"
 

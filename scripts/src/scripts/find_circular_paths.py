@@ -4,11 +4,11 @@ from scripts import analyze_dependencies
 
 def main():
     parser = argparse.ArgumentParser(description="Check for circular dependencies in .adeps file")
-    parser.add_argument("--file", default="Source/ActualDependencies", help="Path to .adeps file")
+    parser.add_argument("--folder", default="Source/ActualDependencies", help="Path to .adeps file")
     args = parser.parse_args()
 
     try:
-        G = analyze_dependencies.load_graph_from_adeps(args.file)
+        G = analyze_dependencies.load_graph_from_adeps(args.folder)
         analyze_dependencies.check_circular_paths(G)
         print("No circular paths detected.")
     except Exception as e:
