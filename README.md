@@ -2,7 +2,9 @@
 This repository contains tools to monitor the dependencies of software libraries and avoid unnecessary dependencies to software libraries. The tools in this repository can be used in a CI/CD pipeline to perform automated checks on the dependencies of software libraries and report any unexpected dependencies. The tools can also be used to generate dependency graphs and find circular dependencies in the software libraries. The goal of this repository is to help developers maintain a clean and efficient dependency structure in their software projects.
 
 Architects and Tech Leads can define the expected dependencies for each library in .deps files. The Tools with CICD setup can ensure that the developers adhere to the defined dependencies during the development process. This ensures adherence to the defined design and helps maintain the separation of concerns through automation.
+
 If Developers accidentally introduce an unexpected dependency, the tools can catch it and report it in the pull request reviews, and block the merge to the main branch until the issue is resolved.
+
 If Developers see a need to introduce a new dependency, they can align with the Leads/Architects to seek their guidance and approval and then update the .deps files accordingly to introduce the change in design. 
 
 At any point in time, the ActualDepsList.adeps file can be reviewed by the Architects and Tech Leads to find if the dependencies are as expected in the repository. They can also visualize the dependencies by generating a graph image output from the ActualDepsList.adeps file to get a better understanding of the dependencies between the libraries in the repository. This can help them identify any potential issues with the dependencies and take necessary actions to resolve them.
