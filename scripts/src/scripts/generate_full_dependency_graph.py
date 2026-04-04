@@ -2,6 +2,10 @@ import argparse
 import os
 import sys
 from scripts import analyze_dependencies
+import traceback
+import kaleido
+kaleido.get_chrome_sync()  # Force download/link the browser
+kaleido.start_sync_server(n=5) # Initialize tabs
 
 def main():
     parser = argparse.ArgumentParser(description="Generate full dependency graph image")
@@ -16,6 +20,8 @@ def main():
         print(f"Graph saved to {args.output}")
     except Exception as e:
         print(f"Error: {e}", file=sys.stderr)
+        error_string = traceback.format_exc()
+        print(f"Captured Error:\n{error_string}")
         sys.exit(1)
 
 if __name__ == "__main__":
