@@ -2,6 +2,9 @@ import argparse
 import os
 import sys
 from scripts import analyze_dependencies
+import kaleido
+kaleido.get_chrome_sync()  # Force download/link the browser
+kaleido.start_sync_server(n=5) # Initialize tabs
 
 def main():
     parser = argparse.ArgumentParser(description="Generate full dependency graph image")
